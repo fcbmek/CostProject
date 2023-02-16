@@ -1,17 +1,17 @@
-class NoExpensesForUser extends Error {
+class NoCostForUser extends Error {
     constructor() {
         super("No expenses were found for this user");
-        this.name = "NoExpensesForUser";
+        this.name = "NoCostForUser";
     }
 }
 
-class NoExpensesBetweenDates extends Error {
+class NoCostBetweenDates extends Error {
     constructor() {
         super("No Expenses were found for this user in those current dates");
     }
 }
 
-class NoExpensesWithCurrentCategory extends Error {
+class NoCostWithCurrentCategory extends Error {
     constructor() {
         super("No Expenses were found for this user with this category");
     }
@@ -30,4 +30,4 @@ class PermissionDenied extends Error {
 }
 
 
-export {NoExpensesForUser, NoExpensesBetweenDates, NoExpensesWithCurrentCategory, UserAlreadyExist, PermissionDenied}
+export {NoCostForUser, NoCostBetweenDates, NoCostWithCurrentCategory, UserAlreadyExist, PermissionDenied}
