@@ -4,17 +4,17 @@ import {getUserByUsername} from "./db_handlers.js";
 import expressBasicAuth from "express-basic-auth";
 
 
-async function getUserCreds(username) {
+async function getUserAuth(username) {
     if (await isUserExists(username) === false) {
         return false
     }
-    const user_creds = await getUserByUsername(username)
-    return [username, user_creds["password"]]
+    const user_auth = await getUserByUsername(username)
+    return [username, user_auth["password"]]
 }
 
 async function validateUser(username, password, cb) {
-    const creds = await getUserCreds(username)
-    if (creds === false)
+    const auth = await getUserAuth(username)
+    if (auth === false)
         return cb(null, false)
     const userMatches = expressBasicAuth.safeCompare(username, creds[0])
     const passwordMatches = expressBasicAuth.safeCompare(password, creds[1])
@@ -33,4 +33,4 @@ async function DoesUserExist(userId) {
 
 }
 
-export {getUserCreds, DoesUserExist, validateUser, checkForPermission}
+export {getUserAuth, DoesUserExist, validateUser, checkForPermission}

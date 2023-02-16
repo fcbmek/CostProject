@@ -4,7 +4,7 @@ import {createRequire} from "module";
 import swaggerUi from 'swagger-ui-express';
 import computedcosts from "./routes/computedcost.js";
 import cost from "./routes/cost.js";
-import statistics from "./routes/statistics.js";
+import statistics from "./routes/statistic.js";
 import user from "./routes/user.js";
 import auth from "./routes/auth.js";
 

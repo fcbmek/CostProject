@@ -1,19 +1,19 @@
 class NoCostForUser extends Error {
     constructor() {
-        super("No expenses were found for this user");
+        super("No costs were found for this user");
         this.name = "NoCostForUser";
     }
 }
 
 class NoCostBetweenDates extends Error {
     constructor() {
-        super("No Expenses were found for this user in those current dates");
+        super("No Costs were found for this user in those current dates");
     }
 }
 
 class NoCostWithCurrentCategory extends Error {
     constructor() {
-        super("No Expenses were found for this user with this category");
+        super("No Costs were found for this user with this category");
     }
 }
 

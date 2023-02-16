@@ -50,8 +50,8 @@ router.get("/:user_id/year/:year/month/:month", async (req, res, next) => {
         }
         let startDate = new Date(req.params.year, month, 1)
         let endDate = new Date(endYear, endMonth, 1)
-        let expenses = await getCostStatisticByDates(req.params.user_id, startDate, endDate)
-        res.json(expenses);
+        let costs = await getCostStatisticByDates(req.params.user_id, startDate, endDate)
+        res.json(costs);
     } catch (e) {
         if (e instanceof NoCostBetweenDates) {
             res.status(404)
@@ -70,8 +70,8 @@ router.get("/:user_id/year/:year/month/:month", async (req, res, next) => {
 router.get("/:user_id/category/:category", async (req, res, next) => {
     try {
         await checkForPermission(req.auth["user"], req.params.user_id)
-        let expenses = await getCostStatisticByCategory(req.params.user_id, req.params.category)
-        res.json(expenses);
+        let costs = await getCostStatisticByCategory(req.params.user_id, req.params.category)
+        res.json(costs);
     } catch (e) {
         if (e instanceof NoCostWithCurrentCategory) {
             res.status(404)
